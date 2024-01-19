@@ -76,11 +76,11 @@ if (!initializedTransaction.status) {
 ```dart
 PaymentService.showPaymentModal(
     context,
-    transaction: transactionResponse,
+    transaction: initializedTransaction,
 ).then((_) async {
     final response = await PaymentService.verifyTransaction(
-        paystackSecretKey: Const.paystackSecretKey,
-        transactionResponse.data?.reference ?? transactionRequest.reference,
+        paystackSecretKey: '...',
+        initializedTransaction.data?.reference ?? request.reference,
     );
 
     print(response); // Result of the confirmed payment
