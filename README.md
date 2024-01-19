@@ -1,10 +1,10 @@
 A Flutter package for making payments via Paystack Payment Gateway (https://paystack.com)
 
 <p align="center">
-  <a href="https://pub.dev/packages/flutter_paystack_max"><img src="https://img.shields.io/pub/v/feedback.svg" alt="pub.dev"></a>
-  <a href="https://pub.dev/packages/flutter_paystack_max/score"><img src="https://img.shields.io/pub/likes/feedback" alt="likes"></a>
-  <a href="https://pub.dev/packages/flutter_paystack_max/score"><img src="https://img.shields.io/pub/popularity/feedback" alt="popularity"></a>
-  <a href="https://pub.dev/packages/flutter_paystack_max/score"><img src="https://img.shields.io/pub/points/feedback" alt="pub points"></a>
+  <a href="https://pub.dev/packages/flutter_paystack_max"><img src="https://img.shields.io/pub/v/flutter_paystack_max.svg" alt="pub.dev"></a>
+  <a href="https://pub.dev/packages/flutter_paystack_max/score"><img src="https://img.shields.io/pub/likes/flutter_paystack_max" alt="likes"></a>
+  <a href="https://pub.dev/packages/flutter_paystack_max/score"><img src="https://img.shields.io/pub/popularity/flutter_paystack_max" alt="popularity"></a>
+  <a href="https://pub.dev/packages/flutter_paystack_max/score"><img src="https://img.shields.io/pub/points/flutter_paystack_max" alt="pub points"></a>
 </p>
 
 <p align="center">
