@@ -8,4 +8,3 @@ export './paystack_transaction_verified_data.dart';
 export '../models/paystack_transaction_request.dart';
 export './paystack_initialized_transaction_data.dart';
 export '../models/paystack_initialized_transaction.dart';
-
