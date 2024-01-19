@@ -1,5 +1,5 @@
 name: flutter_paystack_max
-description: "A Flutter package for making payments via Paystack Payment Gateway (https://paystack.com). Compatible with Android and iOS (Bank, Bank transfer, Card, USSD, Mobile Money, QR and EFT)"
+description: "A Flutter package for making payments via Paystack Payment Gateway (https://paystack.com)."
 
 version: 1.0.0
 homepage: "https://github.com/binemmanuel/flutter_paystack_max"
