@@ -16,16 +16,6 @@ A Flutter package for making payments via Paystack Payment Gateway (https://pays
 
 :heavy_check_mark: Verifying Transactions
 
-
-<p align="center">
-![Pay with mobile money](https://drive.google.com/uc?id=1HIPgdRiaZlBbs7rgPhUtbZXg0OSNV3MI){ width=300px }
-![Pay with mobile money options](https://drive.google.com/uc?id=1gJ40U3WVN38Y51dn8PQYZmlVf_uCkkPw){ width=300px }
-![Pay with card](https://drive.google.com/uc?id=1MgMF1yVR7Sy5DRt7t8-t4ssjmrD-rywm){ width=300px }
-![Successful payment](https://drive.google.com/uc?id=1PCiEZOex075jLmIpjIVlwnhY0yKAYjsD){ width=300px }
-</p>
-
-
-
 ## Supported Platforms
 
 -   Android and
