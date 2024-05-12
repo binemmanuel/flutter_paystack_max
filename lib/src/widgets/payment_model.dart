@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../models/models.dart';
+import '../services/service.dart';
 
 class PaymentModelWidget extends StatefulWidget {
   const PaymentModelWidget({
@@ -50,7 +52,35 @@ class _PaymentModelWidgetState extends State<PaymentModelWidget>
           onWebResourceError: (WebResourceError error) {},
 
           //
-          onNavigationRequest: (NavigationRequest request) {
+          onNavigationRequest: (NavigationRequest request) async {
+            final url = request.url;
+
+            /// Prevent navigation when the user chooses to pay with USSD
+            /// and taps on the USSD Code
+            if (url.contains('tel:')) {
+              final uri = Uri.parse(url);
+              // Open the url on phone
+              if (!(await canLaunchUrl(uri))) {
+                return NavigationDecision.prevent;
+              }
+
+              await launchUrl(uri);
+
+              return NavigationDecision.prevent;
+            }
+
+            if (url.endsWith('cancel')) {
+              Navigator.pop(context);
+
+              return NavigationDecision.prevent;
+            }
+
+            if (!url.contains(PaymentService.baseUrl)) {
+              Navigator.pop(context);
+
+              return NavigationDecision.prevent;
+            }
+
             return NavigationDecision.navigate;
           },
         ),
@@ -89,27 +119,9 @@ class _PaymentModelWidgetState extends State<PaymentModelWidget>
           );
         }
 
-        return Column(
-          children: [
-            Align(
-              alignment: Alignment.centerRight,
-              child: widget.confirmationButton ??
-
-                  // Default action button
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Done'),
-                  ),
-            ),
-
-            //
-            Expanded(
-              child: WebViewWidget(
-                controller: controller,
-                gestureRecognizers: {Factory(() => EagerGestureRecognizer())},
-              ),
-            ),
-          ],
+        return WebViewWidget(
+          controller: controller,
+          gestureRecognizers: {Factory(() => EagerGestureRecognizer())},
         );
       },
     );
