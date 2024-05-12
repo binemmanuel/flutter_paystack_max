@@ -20,7 +20,11 @@ class PaymentService {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ${request.secretKey}',
         },
-        body: request.toJson(),
+        body: PaystackTransactionRequest.fromMap(request.toMap()
+              ..addAll({
+                'metadata': {...?request.metadata, 'cancel_action': 'cancel'}
+              }))
+            .toJson(),
       );
 
       return PaystackInitializedTraction.fromJson(response.body);
