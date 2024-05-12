@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void makePayment() async {
-    const secretKey = 'sk_test_a65aee6b64cff3a7b5373b2ac19b1c15825d4f79';
+    const secretKey = '...';
 
     final request = PaystackTransactionRequest(
       reference: 'ps_${DateTime.now().microsecondsSinceEpoch}',
