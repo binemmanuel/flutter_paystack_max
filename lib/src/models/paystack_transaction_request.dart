@@ -33,7 +33,7 @@ class PaystackTransactionRequest {
   /// calling the toJson() method converts the PaystackMetadata object to a
   /// Stringified JSON representation with meet the requirement from the
   /// paystack documentation (https://paystack.com/docs/api/transaction/#initialize).
-  final String? metadata;
+  final Map<String, Object?>? metadata;
 
   /// Defines the payment method
   /// ["PaystackPaymentChannel.card", "PaystackPaymentChannel.bank", "PaystackPaymentChannel.ussd", "PaystackPaymentChannel.qr", "PaystackPaymentChannel.mobileMoney", "PaystackPaymentChannel.bankTransfer", "PaystackPaymentChannel.eft"]
@@ -59,7 +59,7 @@ class PaystackTransactionRequest {
     PaystackCurrency? currency,
     String? plan,
     PaystackChargesBearer? bearer,
-    String? metadata,
+    Map<String, Object?>? metadata,
     List<PaystackPaymentChannel>? channel,
   }) {
     return PaystackTransactionRequest(
@@ -104,10 +104,8 @@ class PaystackTransactionRequest {
       currency: PaystackCurrency.fromMap(map['currency']),
       plan: map['plan'],
       bearer: PaystackChargesBearer.fromMap(map['bearer']),
-      metadata: map['metadata'],
-      channel: List<PaystackPaymentChannel>.from(
-        map['channel']?.map((x) => PaystackPaymentChannel.fromMap(x)),
-      ),
+      metadata: Map<String, Object?>.from(map['metadata']),
+      channel: List<PaystackPaymentChannel>.from(map['channel']?.map((x) => PaystackPaymentChannel.fromMap(x))),
     );
   }
 
@@ -124,17 +122,17 @@ class PaystackTransactionRequest {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-
+  
     return other is PaystackTransactionRequest &&
-        other.reference == reference &&
-        other.secretKey == secretKey &&
-        other.email == email &&
-        other.amount == amount &&
-        other.currency == currency &&
-        other.plan == plan &&
-        other.bearer == bearer &&
-        other.metadata == metadata &&
-        listEquals(other.channel, channel);
+      other.reference == reference &&
+      other.secretKey == secretKey &&
+      other.email == email &&
+      other.amount == amount &&
+      other.currency == currency &&
+      other.plan == plan &&
+      other.bearer == bearer &&
+      mapEquals(other.metadata, metadata) &&
+      listEquals(other.channel, channel);
   }
 
   @override
