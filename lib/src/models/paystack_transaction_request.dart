@@ -26,13 +26,9 @@ class PaystackTransactionRequest {
   /// Who bears Paystack charges? account or subaccount (defaults to account).
   final PaystackChargesBearer bearer;
 
-  /// JSON object of custom data. Kindly check the Metadata page for more information.
-  /// Example:
-  /// [final metadata = PaystackMetadata(cartId: ...., customFields: ...,).toJson()]
-  ///
-  /// calling the toJson() method converts the PaystackMetadata object to a
-  /// Stringified JSON representation with meet the requirement from the
+ 
   /// paystack documentation (https://paystack.com/docs/api/transaction/#initialize).
+  /// Check the documentation on what fields to pass
   final Map<String, Object?>? metadata;
 
   /// Defines the payment method
