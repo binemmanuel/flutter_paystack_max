@@ -13,14 +13,15 @@ dependencies:
         sdk: flutter
 
     cupertino_icons: ^1.0.2
-    flutter_paystack_max: 
-      path: ../
+    flutter_paystack_max:
+        path: ../
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
 
     flutter_lints: ^2.0.0
-
+    logger: ^2.2.0
+    
 flutter:
     uses-material-design: true
