@@ -49,7 +49,13 @@ class _PaymentModelWidgetState extends State<PaymentModelWidget>
           },
 
           //
-          onWebResourceError: (WebResourceError error) {},
+          onWebResourceError: (WebResourceError error) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(error.description),
+            ));
+
+            Navigator.pop(context);
+          },
 
           //
           onNavigationRequest: (NavigationRequest request) async {
