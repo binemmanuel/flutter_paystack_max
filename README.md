@@ -64,7 +64,7 @@ final initializedTransaction = await PaymentService.initializeTransaction(reques
 if (!initializedTransaction.status) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.red,
-        content: Text(transactionResponse.message),
+        content: Text(initializedTransaction.message),
     ));
 
     return;
@@ -74,17 +74,19 @@ if (!initializedTransaction.status) {
 3. Open the payment modal to accept payment
 
 ```dart
-PaymentService.showPaymentModal(
+final response = await PaymentService.showPaymentModal(
     context,
     transaction: initializedTransaction,
+    // Callback URL must match the one specified on your paystack dashboard,
+    callbackUrl: '...'
 ).then((_) async {
-    final response = await PaymentService.verifyTransaction(
+    return await PaymentService.verifyTransaction(
         paystackSecretKey: '...',
         initializedTransaction.data?.reference ?? request.reference,
     );
-
-    print(response); // Result of the confirmed payment
 });
+
+print(response); // Result of the confirmed payment
 ```
 
 ## Additional information
