@@ -26,7 +26,6 @@ class PaystackTransactionRequest {
   /// Who bears Paystack charges? account or subaccount (defaults to account).
   final PaystackChargesBearer bearer;
 
- 
   /// paystack documentation (https://paystack.com/docs/api/transaction/#initialize).
   /// Check the documentation on what fields to pass
   final Map<String, Object?>? metadata;
@@ -101,7 +100,9 @@ class PaystackTransactionRequest {
       plan: map['plan'],
       bearer: PaystackChargesBearer.fromMap(map['bearer']),
       metadata: Map<String, Object?>.from(map['metadata']),
-      channel: List<PaystackPaymentChannel>.from(map['channel']?.map((x) => PaystackPaymentChannel.fromMap(x))),
+      channel: List<PaystackPaymentChannel>.from(
+        map['channel']?.map((x) => PaystackPaymentChannel.fromMap(x)),
+      ),
     );
   }
 
@@ -118,17 +119,17 @@ class PaystackTransactionRequest {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is PaystackTransactionRequest &&
-      other.reference == reference &&
-      other.secretKey == secretKey &&
-      other.email == email &&
-      other.amount == amount &&
-      other.currency == currency &&
-      other.plan == plan &&
-      other.bearer == bearer &&
-      mapEquals(other.metadata, metadata) &&
-      listEquals(other.channel, channel);
+        other.reference == reference &&
+        other.secretKey == secretKey &&
+        other.email == email &&
+        other.amount == amount &&
+        other.currency == currency &&
+        other.plan == plan &&
+        other.bearer == bearer &&
+        mapEquals(other.metadata, metadata) &&
+        listEquals(other.channel, channel);
   }
 
   @override
