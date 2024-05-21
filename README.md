@@ -31,6 +31,11 @@ A Flutter package for making payments via Paystack Payment Gateway (https://pays
 -   Android and
 -   iOS
 
+## Prerequisites
+
+-   Paystack secret key
+-   Callback URL
+
 No configuration required for this package works out of the box.
 
 ## Usage
