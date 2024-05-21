@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paystack_max/flutter_paystack_max.dart';
+import 'package:logger/logger.dart';
 
 void main() {
   runApp(const MyApp());
@@ -92,6 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
     await PaymentService.showPaymentModal(
       context,
       transaction: initializedTransaction,
+      // Callback URL must match the one specified on your paystack dashboard,
+      callbackUrl: '...',
     );
 
     final response = await PaymentService.verifyTransaction(
