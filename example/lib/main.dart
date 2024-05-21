@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paystack_max/flutter_paystack_max.dart';
-import 'package:logger/logger.dart';
 
 void main() {
   runApp(const MyApp());
