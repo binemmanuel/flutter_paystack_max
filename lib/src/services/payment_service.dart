@@ -34,9 +34,12 @@ class PaymentService {
   }
 
   /// Show a model to allow the choose a payment method and make payment
+  ///
+  /// [callbackUrl] Callback URL must match the one specified on your paystack dashboard,
   static Future<void> showPaymentModal(
     BuildContext context, {
     VoidCallback? onClosing,
+    required String callbackUrl,
     required PaystackInitializedTraction transaction,
   }) async {
     return await showModalBottomSheet(
@@ -53,6 +56,7 @@ class PaymentService {
       //
       builder: (context) => PaymentModelWidget(
         transaction: transaction,
+        callbackUrl: callbackUrl,
         onClosing: () => onClosing?.call(),
       ),
     );
