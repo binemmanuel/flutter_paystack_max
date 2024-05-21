@@ -1,7 +1,7 @@
 name: flutter_paystack_max
 description: "A Flutter package for making payments via Paystack Payment Gateway (https://paystack.com)."
 
-version: 1.0.1
+version: 1.0.4
 homepage: "https://github.com/binemmanuel/flutter_paystack_max"
 
 environment:
