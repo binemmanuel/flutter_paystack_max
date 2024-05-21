@@ -3,20 +3,22 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:logger/logger.dart';
 
 import '../models/models.dart';
-import '../services/service.dart';
 
 class PaymentModelWidget extends StatefulWidget {
   const PaymentModelWidget({
     super.key,
     required this.transaction,
+    required this.callbackUrl,
     required this.onClosing,
     this.onWebResourceError,
     this.confirmationButton,
   });
 
   final PaystackInitializedTraction transaction;
+  final String callbackUrl;
   final VoidCallback onClosing;
   final ValueSetter<WebResourceError>? onWebResourceError;
   final Widget? confirmationButton;
@@ -81,7 +83,7 @@ class _PaymentModelWidgetState extends State<PaymentModelWidget>
               return NavigationDecision.prevent;
             }
 
-            if (!url.contains(PaymentService.baseUrl)) {
+            if (url.contains(widget.callbackUrl)) {
               Navigator.pop(context);
 
               return NavigationDecision.prevent;
