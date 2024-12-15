@@ -41,12 +41,14 @@ class PaymentService {
     VoidCallback? onClosing,
     required String callbackUrl,
     required PaystackInitializedTraction transaction,
+    Color? backgroundColor,
   }) async {
     return await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       showDragHandle: true,
       useSafeArea: true,
+      backgroundColor: backgroundColor,
 
       constraints: BoxConstraints(
         maxHeight: MediaQuery.of(context).size.height,
