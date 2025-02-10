@@ -30,3 +30,5 @@ build/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+example/pubspec.lock
+example/ios/Podfile.lock
