@@ -15,6 +15,9 @@ dependencies:
     url_launcher: ^6.3.1
     webview_flutter: ^4.10.0
 
+dependency_overrides:
+    webview_flutter_wkwebview: 3.17.0
+
 dev_dependencies:
     flutter_test:
         sdk: flutter
